@@ -7,11 +7,11 @@ function Tree() {
   this.leaves = [];
   this.branches = [];
 
-  for (var i = 0; i < 1500; i++) {
+  for (var i = 0; i < 355; i++) {
     this.leaves.push(new Leaf());
   }
   var pos = createVector(width / 2, height/ 2);
-  var dir = createVector(0, -1);
+  var dir = createVector(0, -5);
   var root = new Branch(null, pos, dir);
   this.branches.push(root);
   var current = root;
@@ -72,10 +72,6 @@ function Tree() {
     }
   }
 
-
-
-
-
   this.show = function() {
     for (var i = 0; i < this.leaves.length; i++) {
       this.leaves[i].show();
@@ -84,7 +80,5 @@ function Tree() {
     for (var i = 0; i < this.branches.length; i++) {
       this.branches[i].show();
     }
-
   }
-
 }

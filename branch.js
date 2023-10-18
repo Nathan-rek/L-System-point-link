@@ -9,7 +9,7 @@ function Branch(parent, pos, dir) {
   this.dir = dir;
   this.origDir = this.dir.copy();
   this.count = 0;
-  this.len = 2;
+  this.len = 10;
 
   this.reset = function() {
     this.dir = this.origDir.copy();
@@ -27,7 +27,7 @@ function Branch(parent, pos, dir) {
   this.show = function() {
     if (parent != null) {
       stroke(1);
-      strokeWeight(0.5);
+      strokeWeight(2);
       line(this.pos.x, this.pos.y, this.parent.pos.x, this.parent.pos.y);
     }
 

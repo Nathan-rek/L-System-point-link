@@ -8,7 +8,7 @@ function Leaf() {
   this.reached = false;
 
   this.show = function() {
-    fill(0);
+    fill(100);
     noStroke(0);
     ellipse(this.pos.x, this.pos.y, 0, 0);
   }
