@@ -1,7 +1,12 @@
 html, body {
-  margin: 10;
-  padding: 10;
+  margin: 0;
+  padding: 0;
 }
 canvas {
   display: block;
+}
+
+#output {
+    font-size: 21px;
+    color: black; 
 }

@@ -3,14 +3,23 @@
 // http://patreon.com/codingtrain
 // Code for: https://youtu.be/kKT0v3qhIQY
 
+// Coding Rainbow
+// Daniel Shiffman
+// http://patreon.com/codingtrain
+// Code for: https://youtu.be/kKT0v3qhIQY
+
+
+
+
 function Tree() {
   this.leaves = [];
   this.branches = [];
-
-  for (var i = 0; i < 355; i++) {
+  this.direction = 0;
+//Nombre de point généré
+  for (var i = 0; i < 350*8; i++) {
     this.leaves.push(new Leaf());
   }
-  var pos = createVector(width / 2, height/ 2);
+  var pos = createVector(width/ 2, height/ 2);
   var dir = createVector(0, -5);
   var root = new Branch(null, pos, dir);
   this.branches.push(root);
@@ -62,11 +71,13 @@ function Tree() {
       }
     }
 
-    for (var i = this.branches.length - 1; i >= 0; i--) {
+   for (var i = this.branches.length - 1; i >= 0; i--) {
       var branch = this.branches[i];
       if (branch.count > 0) {
         branch.dir.div(branch.count + 1);
-        this.branches.push(branch.next());
+        var newBranch = branch.next();
+        newBranch.dir.mult(this.direction);
+        this.branches.push(newBranch);
         branch.reset();
       }
     }
@@ -77,8 +88,10 @@ function Tree() {
       this.leaves[i].show();
     }
 
-    for (var i = 0; i < this.branches.length; i++) {
-      this.branches[i].show();
+     for (var i = 0; i < this.branches.length; i++) {
+      var branch = this.branches[i];
+      branch.dir.mult(this.direction);
+      branch.show();
     }
   }
 }
